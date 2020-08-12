@@ -65,6 +65,7 @@ static int fdt_nodename_eq_(const void *fdt, int offset,
 		/* short match */
 		return 0;
 
+
 	if (memcmp(p, s, len) != 0)
 		return 0;
 
@@ -250,11 +251,7 @@ const char *fdt_get_name(const void *fdt, int nodeoffset, int *len)
 		 * contents are loosely checked.
 		 */
 		const char *leaf;
-		leaf = strrchr(nameptr, '/');
-		if (leaf == NULL) {
-			err = -FDT_ERR_BADSTRUCTURE;
-			goto fail;
-		}
+		
 		nameptr = leaf+1;
 	}
 
